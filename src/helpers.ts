@@ -1,25 +1,25 @@
 export function toQuery(params: any, delimiter = "&") {
-  const keys = Object.keys(params);
+    const keys = Object.keys(params)
 
-  return keys.reduce((str, key, index) => {
-    let query = `${str}${key}=${params[key]}`;
+    return keys.reduce((str, key, index) => {
+        let query = `${str}${key}=${params[key]}`
 
-    if (index < keys.length - 1) {
-      query += delimiter;
-    }
+        if (index < keys.length - 1) {
+            query += delimiter
+        }
 
-    return query;
-  }, "");
+        return query
+    }, "")
 }
 
 export function toParams(query: string) {
-  const q = query.replace(/^\??\//, "");
+    const q = query.replace(/^\??\//, "")
 
-  return q.split("&").reduce((values: any, param) => {
-    const [key, value] = param.split("=");
+    return q.split("&").reduce((values: any, param) => {
+        const [key, value] = param.split("=")
 
-    values[key] = value;
+        values[key] = value
 
-    return values;
-  }, {});
+        return values
+    }, {})
 }
